@@ -14,7 +14,7 @@ function SearchPokedex() {
   };
 
   const handleSubmit = () => {
-    setError(null); // Reset error state
+    setError(null);
     fetch(URL, {
         method: "GET",
         headers: {
@@ -48,7 +48,7 @@ function SearchPokedex() {
 
       <View style={styles.containerBottom}>
         {error && <Text style={styles.errorText}>{error}</Text>}
-        {pokemonData.name && <FormatData data={pokemonData} />}
+        <FormatData data={pokemonData} />
       </View>
     </View>
   );
@@ -64,13 +64,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     backgroundColor: 'black',
     color: 'white',
-    textDecorationColor: 'white',
-    borderColor: 'gray', 
-    borderWidth: 8, 
-    padding: 2,
+    borderColor: '#C3BEC2', 
+    borderWidth: 5, 
+    padding: 0,
     flex: 3
   },
   button: {
+    textAlign: 'center',
     flex: 1
   },
   errorText: {

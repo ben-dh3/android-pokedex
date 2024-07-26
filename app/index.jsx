@@ -2,12 +2,10 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ImageBackground } from 'react-native';
 import SearchPokedex from '../components/SearchPokedex';
 
-// const image = {require('../assets/pokedex-graphics')};
-
 export default function Index() {
   return (      
-    <ImageBackground source={require('../assets/pokedex-graphics.png')} resizeMode="cover" style={styles.image}>
-      <View>
+    <ImageBackground source={require('../assets/bg.png')} resizeMode="cover" style={styles.image}>
+      <View style={styles.container}>
           <SearchPokedex />
       </View>
     </ImageBackground>
@@ -15,8 +13,11 @@ export default function Index() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    marginTop: 140,
+    marginHorizontal: 10,
+  },
   image: {
     flex: 1,
-    justifyContent: 'center',
   },
 });
