@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 
 const FormatData = ({ data }) => {
     if (!data || !data.name) {
@@ -20,21 +20,42 @@ const FormatData = ({ data }) => {
 
     return (
         <View>
-            <Image
+            <View style={styles.topScreen}>
+                <Text style={styles.text}>{data.name}</Text>
+                <Text style={styles.text}>Height: {data.height}</Text>
+                <Text style={styles.text}>Weight: {data.weight}</Text>
+                <Text style={styles.text}>Type:{types}</Text>
+                <Image
                 source={{ uri: data.sprites.front_default }}
-                style={{ width: 100, height: 100 }}
-            />
-            <Text>{data.name}</Text>
-            <Text>Height: {data.height}</Text>
-            <Text>Weight: {data.weight}</Text>
-            <Text>Type:</Text>
-            {types}
-            <Text>Abilities:</Text>
-            {abilities}
-            <Text>Stats:</Text>
-            {stats}
+                style={styles.image}
+                /> 
+            </View>
+            
+            <View style={styles.bottomScreen}>
+                <Text style={styles.text}>{abilities}</Text>
+                <Text style={styles.text}>{stats}</Text>
+            </View>
+            
         </View>
     );
 };
+
+const styles = StyleSheet.create({
+    bottomScreen: {
+        alignItems: 'center',
+        flexDirection: 'col',
+    },
+    text: {
+        color: 'white',
+    },
+    topScreen: {
+        alignItems: 'center',
+        flexDirection: 'col',
+    },
+    image: {
+        width: 100, 
+        height: 100,
+    },
+  });
 
 export default FormatData;

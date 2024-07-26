@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "pokedex-mobile",
-    "slug": "pokedex-mobile",
+    "slug": "pokedex-mobile-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -12,16 +12,24 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "pokedex.mobile.app"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "pokedex.mobile.app"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e25f98eb-cfa0-4496-9e8f-764b2f6c7512"
+      }
+    },
+    "owner": "bendh3"
   }
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import FormatData from './FormatData';
-import { TextInput, View, Button, Text } from 'react-native';
+import { TextInput, View, Button, Text, StyleSheet } from 'react-native';
 
 function SearchPokedex() {
   const [pokemon, setPokemon] = useState("");
@@ -35,18 +35,47 @@ function SearchPokedex() {
 
   return (
     <View>
-      <Text>Search a Pokemon:</Text>
-      <TextInput
-        placeholder="Enter Pokemon name"
-        value={pokemon}
-        onChangeText={handleChangePokemon}
-        style={{ borderColor: 'gray', borderWidth: 1, padding: 5 }}
-      />
-      <Button title='Search' onPress={handleSubmit} />
-      {error && <Text style={{ color: 'red' }}>{error}</Text>}
-      {pokemonData.name && <FormatData data={pokemonData} />}
+      <View style={styles.containerTop}>
+        <TextInput
+          placeholder="Enter Pokemon name"
+          placeholderTextColor="white"
+          value={pokemon}
+          onChangeText={handleChangePokemon}
+          style={styles.textInput}
+        />
+        <Button title='Search' onPress={handleSubmit} style={styles.button} />
+      </View>
+
+      <View style={styles.containerBottom}>
+        {error && <Text style={styles.errorText}>{error}</Text>}
+        {pokemonData.name && <FormatData data={pokemonData} />}
+      </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  containerBottom: {
+  },
+  containerTop: {
+    flexDirection: 'row',  
+  },
+  textInput: {
+    textAlign: 'center',
+    backgroundColor: 'black',
+    color: 'white',
+    textDecorationColor: 'white',
+    borderColor: 'gray', 
+    borderWidth: 8, 
+    padding: 2,
+    flex: 3
+  },
+  button: {
+    flex: 1
+  },
+  errorText: {
+    color: 'red'
+  }
+});
 
 export default SearchPokedex;

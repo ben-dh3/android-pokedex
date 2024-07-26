@@ -1,0 +1,5 @@
+[install and run](https://docs.expo.dev/build/setup/#install-and-run-the-app)
+
+BUILD COMMANDS
+eas build:configure
+eas build --platform android
