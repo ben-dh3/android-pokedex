@@ -1,15 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, ImageBackground } from 'react-native';
-import SearchPokedex from '../components/SearchPokedex';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
-import FormatData from '../components/FormatData';
+import PokedexEntry from '../components/PokedexEntry';
+import SearchPokedex from '../components/SearchPokedex';
+import { capitalizeFirstLetter } from '../services/utils.js';
 
 const Stack = createNativeStackNavigator();
 
 export default function Index() {
   return (      
-
       <Stack.Navigator>
         <Stack.Screen
           name="Search Pokedex"
@@ -17,19 +15,10 @@ export default function Index() {
           options={{title: ''}}
         />
         <Stack.Screen
-          name="FormatData"
-          component={FormatData}
+          name="PokedexEntry"
+          component={PokedexEntry}
+          options={({ route }) => ({ title: capitalizeFirstLetter(route.params.data.name) })}
         />
       </Stack.Navigator>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 140,
-    marginHorizontal: 10,
-  },
-  image: {
-    flex: 1,
-  },
-});

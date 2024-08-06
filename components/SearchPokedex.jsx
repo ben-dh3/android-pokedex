@@ -30,7 +30,7 @@ function SearchPokedex({ navigation }) {
       throw new Error('That Pokémon doesn\'t exist');
     })
     .then((data) => {
-      navigation.navigate('FormatData', { data });
+      navigation.navigate('PokedexEntry', { data });
     })
     .catch((error) => {
       setError(error.message);
