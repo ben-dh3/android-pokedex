@@ -8,16 +8,14 @@ const Stack = createNativeStackNavigator();
 
 export default function Index() {
   return (      
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen
           name="Search Pokedex"
           component={SearchPokedex}
-          options={{title: ''}}
         />
         <Stack.Screen
           name="PokedexEntry"
           component={PokedexEntry}
-          options={({ route }) => ({ title: capitalizeFirstLetter(route.params.data.name) })}
         />
       </Stack.Navigator>
   );

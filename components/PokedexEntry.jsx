@@ -1,30 +1,33 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { View, Text, Image, StyleSheet, ImageBackground, ScrollView } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { capitalizeFirstLetter } from '../services/utils';
 
 const PokedexEntry = ({ route }) => {
+    const navigation = useNavigation();
     const { data } = route.params;
     const hasData = data && data.name;
 
     const typeColors = {
-        normal: ['#A8A878', '#C6C6A7', '#DADAD8'],
-        fire: ['#F08030', '#F5AC78', '#F8C0C8'],
-        water: ['#6890F0', '#98D8D8', '#A6C2E3'],
-        electric: ['#F8D030', '#FAE078', '#FAF4B6'],
-        grass: ['#78C850', '#A7DB8D', '#C7E6A3'],
-        ice: ['#98D8D8', '#BCE6E6', '#D8F0F0'],
-        fighting: ['#C03028', '#D67873', '#E0B9B9'],
-        poison: ['#A040A0', '#C183C1', '#E6B6E6'],
-        ground: ['#E0C068', '#EBD69D', '#F8E0A8'],
-        flying: ['#A890F0', '#C6B7F5', '#D1C4F6'],
-        psychic: ['#F85888', '#FA92B2', '#FAC6D8'],
-        bug: ['#A8B820', '#C6D16E', '#D8E0A8'],
-        rock: ['#B8A038', '#D1C17D', '#E6C8A3'],
-        ghost: ['#705898', '#A292BC', '#C6B8D8'],
-        dragon: ['#7038F8', '#A27DFA', '#C6A8F8'],
-        dark: ['#705848', '#A29288', '#D8C6C0'],
-        steel: ['#B8B8D0', '#D1D1E0', '#E6E6FA'],
-        fairy: ['#EE99AC', '#F4BDC9', '#FAE6F4'],
-        unknown: ['#68A090', '#A8BBA8', '#C6D8D8'],
+        normal: ['#DFD7D1', '#D1C4BB', '#A28C7B'],
+        fire: ['#EED4C4', '#E6C0A3', '#DBAA80'],
+        water: ['#C2D0E2', '#A3B9D6', '#7F9DC7'],
+        electric: ['#FFECA8', '#FFE07A', '#FFD747'],
+        grass: ['#D0EABE', '#B8DE9C', '#9CD275'],
+        ice: ['#C5ECF0', '#A7E1E8', '#86D5DE'],
+        fighting: ['#E1C0C3', '#D5A4A9', '#C5888F'],
+        poison: ['#CEB9E4', '#BB9EDB', '#A37FCD'],
+        ground: ['#E0C3B2', '#D4AE96', '#C59273'],
+        flying: ['#CCCCED', '#B8B8E7', '#A1A1DE'],
+        psychic: ['#C8B8EF', '#B8A4EB', '#9C80E2'],
+        bug: ['#E3D796', '#DDD085', '#D5C869'],
+        rock: ['#B5B5B5', '#ABABAB', '#9A9A9A'],
+        ghost: ['#BABAF4', '#B1B1F2', '#A0A0F0'],
+        dragon: ['#9B8BFF', '#8F7EFF', '#8370FF'],
+        dark: ['#9490B6', '#8984AE', '#6F689D'],
+        steel: ['#E8E8FC', '#D8D8FF', '#CACAEF'],
+        fairy: ['#FBE6F8', '#FBDBF6', '#F3C2EB'],
+        unknown: ['#FFFFFF', '#FFFFFF', '#FFFFFF'],
     };
 
     const formattedTypes = hasData ? data.types.map(item => item.type.name).join(', ') : 'Unknown';
@@ -40,18 +43,23 @@ const PokedexEntry = ({ route }) => {
 
     return (
         <View style={styles.container}>
-            <ImageBackground style={[styles.topScreen, topBackground]}>
+            <View style={[styles.containerTop, topBackground]}>
                 {hasData && (
-                    <View style={[styles.imageContainer, imageBackground]}>
-                        <Image
-                            source={{ uri: data.sprites.front_default }}
-                            style={styles.image}
-                        />
-                    </View>
+                    <>
+                        <View style={[styles.imageContainer, imageBackground]}>
+                            <Image
+                                source={{ uri: data.sprites.front_default }}
+                                style={styles.image}
+                            />
+                        </View>
+                        <Text style={styles.title}>{capitalizeFirstLetter(data.name)}</Text>
+                    </>
                 )}
-            </ImageBackground>
-            
-            <ImageBackground style={styles.bottomScreen}>
+            </View>
+            <TouchableOpacity onPress={() => navigation.goBack()} style={styles.button}>
+            </TouchableOpacity>
+            <View style={[styles.containerBottom, topBackground]}>
+                <View style={styles.data}>
                     <View style={[styles.dataContainer, dataBackground]}>
                         <Text style={styles.text}>Height: {data.height}</Text>
                     </View>
@@ -70,7 +78,8 @@ const PokedexEntry = ({ route }) => {
                             {formattedStats}
                         </View>
                     </View>
-            </ImageBackground>
+                </View> 
+            </View>
         </View>
     );
 };
@@ -78,12 +87,17 @@ const PokedexEntry = ({ route }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        justifyContent: 'center',
     },
-    topScreen: {
+    containerTop: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
         borderBottomWidth:20,
+    },
+    containerBottom: {
+        flex: 1,
+        zIndex:-10,
     },
     imageContainer: {
         alignItems: 'center',
@@ -97,21 +111,39 @@ const styles = StyleSheet.create({
         height: 150,
         resizeMode: 'contain'
     },
-    bottomScreen: {
-        flex: 1,
-        marginHorizontal: 10,
-        marginTop:5,
+    button: {
+        alignSelf: 'center',
+        position: 'absolute',
+        width: 100,
+        height: 100,
+        borderRadius: 200 / 2,
+        backgroundColor:'#FF7979',
+        borderWidth:20,
+      },
+    data: {
+        marginTop: 60,
+        marginHorizontal:20,
     },
     dataContainer: {
         padding: 5,
-        borderRadius: 20,
+        borderRadius: 10,
         marginVertical: 5,
-        alignItems: 'center'
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.8,
+        shadowRadius: 2,  
+        elevation: 5,
     },
     statsContainer: {
         alignItems: 'center',
         marginTop: 5,
-        borderRadius: 20,
+        borderRadius: 10,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.8,
+        shadowRadius: 2,  
+        elevation: 5,
     },
     statContainer: {
         flexDirection: 'row',
@@ -120,16 +152,16 @@ const styles = StyleSheet.create({
     },
     statText: {
         width: '45%',
-        color: 'black',
-        padding: 1,
-        margin: 3,
+        color: 'white',
         textAlign: 'start',
     },
+    title: {
+        fontWeight: 'bold',
+        fontSize:25,
+        padding:10,
+    },
     text: {
-        color: 'black',
-        padding: 3,
-        margin: 3,
-        textAlign: 'center',
+        color: 'white',
     },
 });
 
