@@ -1,43 +1,47 @@
 import React, { useState } from 'react';
-import FormatData from './FormatData';
 import { TextInput, View, Button, Text, StyleSheet } from 'react-native';
 
-function SearchPokedex() {
+function SearchPokedex({ navigation }) {
   const [pokemon, setPokemon] = useState("");
-  const [pokemonData, setPokemonData] = useState({});
   const [error, setError] = useState(null);
   
-  const URL = `https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`;
-
   const handleChangePokemon = (text) => {
     setPokemon(text);
   };
 
   const handleSubmit = () => {
+    if (pokemon.trim() === "") {
+      setError("Please enter a Pokémon name");
+      return;
+    }
+    
     setError(null);
+    const URL = `https://pokeapi.co/api/v2/pokemon/${pokemon.toLowerCase()}`;
     fetch(URL, {
-        method: "GET",
-        headers: {
-          'Origin': 'http://localhost:3000',
-        },
-      })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        throw new Error('That pokemon doesn\'t exist');
-      })
-      .then((data) => setPokemonData(data))
-      .catch((error) => {
-        setError(error.message);
-      });
+      method: "GET",
+      headers: {
+        'Origin': 'http://localhost:3000',
+      },
+    })
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      throw new Error('That Pokémon doesn\'t exist');
+    })
+    .then((data) => {
+      navigation.navigate('FormatData', { data });
+    })
+    .catch((error) => {
+      setError(error.message);
+    });
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <View style={styles.containerTop}>
         <TextInput
-          placeholder="Enter Pokemon name"
+          placeholder="Enter Pokémon name"
           placeholderTextColor="white"
           value={pokemon}
           onChangeText={handleChangePokemon}
@@ -48,7 +52,6 @@ function SearchPokedex() {
 
       <View style={styles.containerBottom}>
         {error && <Text style={styles.errorText}>{error}</Text>}
-        <FormatData data={pokemonData} />
       </View>
     </View>
   );

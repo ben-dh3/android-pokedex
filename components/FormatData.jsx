@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, ImageBackground } from 'react-native';
 
-const FormatData = ({ data }) => {
+const FormatData = ({ route }) => {
+    const { data } = route.params;
     const hasData = data && data.name;
 
     const formattedTypes = hasData ? data.types.map(item => item.type.name).join(' ') : 'Unknown';
@@ -10,7 +11,7 @@ const FormatData = ({ data }) => {
 
     return (
         <View style={styles.container}>
-            <ImageBackground source={require('../assets/top-screen.png')} resizeMode="cover" style={styles.topScreen}>
+            <ImageBackground style={styles.topScreen}>
                 <Text style={styles.text}>{hasData ? data.name : 'No data available'}</Text>
                 {hasData && (
                     <>
@@ -25,7 +26,7 @@ const FormatData = ({ data }) => {
                 )}
             </ImageBackground>
             
-            <ImageBackground source={require('../assets/bottom-screen.png')} resizeMode="cover" style={styles.bottomScreen}>
+            <ImageBackground style={styles.bottomScreen}>
                 <View style={styles.stats}>
                     <Text style={styles.text}>Abilities: {formattedAbilities}</Text>
                     <Text style={styles.text}>Stats: {formattedStats}</Text>
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
         height: 300,
     },
     text: {
-        color: 'white',
+        color: 'black',
         marginVertical: 5,
     },
     image: {
