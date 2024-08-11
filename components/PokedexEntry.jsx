@@ -2,6 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { capitalizeFirstLetter } from '../services/utils';
+import NavigationButton from './NavigationButton';
 
 const PokedexEntry = ({ route }) => {
     const navigation = useNavigation();
@@ -56,8 +57,8 @@ const PokedexEntry = ({ route }) => {
                     </>
                 )}
             </View>
-            <TouchableOpacity onPress={() => navigation.goBack()} style={styles.button}>
-            </TouchableOpacity>
+            <NavigationButton onPress={() => navigation.goBack()} colour={'#FFB7B7'}>
+            </NavigationButton>
             <View style={[styles.containerBottom, topBackground]}>
                 <View style={styles.data}>
                     <View style={[styles.dataContainer, dataBackground]}>
@@ -111,15 +112,6 @@ const styles = StyleSheet.create({
         height: 150,
         resizeMode: 'contain'
     },
-    button: {
-        alignSelf: 'center',
-        position: 'absolute',
-        width: 100,
-        height: 100,
-        borderRadius: 200 / 2,
-        backgroundColor:'#FF7979',
-        borderWidth:20,
-      },
     data: {
         marginTop: 60,
         marginHorizontal:20,

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TextInput, View, Button, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import NavigationButton from './NavigationButton';
 
 function SearchPokedex({ navigation }) {
   const [pokemon, setPokemon] = useState("");
@@ -48,8 +49,8 @@ function SearchPokedex({ navigation }) {
         />
         {error && <Text style={styles.errorText}>{error}</Text>}
       </View>
-        <TouchableOpacity onPress={handleSubmit} style={styles.button}>
-        </TouchableOpacity>
+        <NavigationButton onPress={handleSubmit} colour={'#A1EEFF'}>
+        </NavigationButton>
       <View style={styles.containerBottom}>
       </View>
     </View>
@@ -79,15 +80,6 @@ const styles = StyleSheet.create({
     borderColor: '#C3BEC2', 
     borderWidth: 5,
     borderRadius: 20,
-  },
-  button: {
-    alignSelf: 'center',
-    position: 'absolute',
-    width: 100,
-    height: 100,
-    borderRadius: 200 / 2,
-    backgroundColor:'#A1EEFF',
-    borderWidth:20,
   },
   errorText: {
     color: 'white'
