@@ -1,8 +1,6 @@
-import { StyleSheet, Text, View, ImageBackground } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import PokedexEntry from '../components/PokedexEntry';
 import SearchPokedex from '../components/SearchPokedex';
-import { capitalizeFirstLetter } from '../services/utils.js';
 
 const Stack = createNativeStackNavigator();
 

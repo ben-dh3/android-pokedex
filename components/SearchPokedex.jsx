@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextInput, View, Button, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { TextInput, View, StyleSheet, Text } from 'react-native';
 import NavigationButton from './NavigationButton';
 
 function SearchPokedex({ navigation }) {

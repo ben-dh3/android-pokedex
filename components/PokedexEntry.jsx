@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Image, StyleSheet, Text} from 'react-native';
 import { capitalizeFirstLetter } from '../services/utils';
 import NavigationButton from './NavigationButton';
 
@@ -10,24 +10,24 @@ const PokedexEntry = ({ route }) => {
     const hasData = data && data.name;
 
     const typeColors = {
-        normal: ['#DFD7D1', '#D1C4BB', '#A28C7B'],
-        fire: ['#EED4C4', '#E6C0A3', '#DBAA80'],
-        water: ['#C2D0E2', '#A3B9D6', '#7F9DC7'],
-        electric: ['#FFECA8', '#FFE07A', '#FFD747'],
-        grass: ['#D0EABE', '#B8DE9C', '#9CD275'],
-        ice: ['#C5ECF0', '#A7E1E8', '#86D5DE'],
-        fighting: ['#E1C0C3', '#D5A4A9', '#C5888F'],
-        poison: ['#CEB9E4', '#BB9EDB', '#A37FCD'],
-        ground: ['#E0C3B2', '#D4AE96', '#C59273'],
-        flying: ['#CCCCED', '#B8B8E7', '#A1A1DE'],
-        psychic: ['#C8B8EF', '#B8A4EB', '#9C80E2'],
-        bug: ['#E3D796', '#DDD085', '#D5C869'],
-        rock: ['#B5B5B5', '#ABABAB', '#9A9A9A'],
-        ghost: ['#BABAF4', '#B1B1F2', '#A0A0F0'],
-        dragon: ['#9B8BFF', '#8F7EFF', '#8370FF'],
-        dark: ['#9490B6', '#8984AE', '#6F689D'],
-        steel: ['#E8E8FC', '#D8D8FF', '#CACAEF'],
-        fairy: ['#FBE6F8', '#FBDBF6', '#F3C2EB'],
+        normal: ['#DFD7D1', '#A28C7B', '#D1C4BB'],
+        fire: ['#EED4C4', '#DBAA80', '#E6C0A3'],
+        water: ['#C2D0E2', '#7F9DC7', '#A3B9D6'],
+        electric: ['#FFECA8', '#FFD747', '#FFE07A' ],
+        grass: ['#D0EABE','#9CD275', '#B8DE9C'],
+        ice: ['#C5ECF0', '#86D5DE', '#A7E1E8'],
+        fighting: ['#E1C0C3', '#C5888F', '#D5A4A9'],
+        poison: ['#CEB9E4', '#A37FCD', '#BB9EDB'],
+        ground: ['#E0C3B2', '#C59273', '#D4AE96'],
+        flying: ['#CCCCED', '#A1A1DE', '#B8B8E7'],
+        psychic: ['#C8B8EF', '#9C80E2', '#B8A4EB'],
+        bug: ['#E3D796', '#D5C869', '#DDD085'],
+        rock: ['#B5B5B5', '#9A9A9A', '#ABABAB'],
+        ghost: ['#BABAF4', '#A0A0F0', '#B1B1F2'],
+        dragon: ['#9B8BFF', '#8370FF', '#8F7EFF'],
+        dark: ['#9490B6', '#6F689D', '#8984AE'],
+        steel: ['#E8E8FC', '#CACAEF', '#D8D8FF'],
+        fairy: ['#FBE6F8', '#F3C2EB', '#FBDBF6'],
         unknown: ['#FFFFFF', '#FFFFFF', '#FFFFFF'],
     };
 
@@ -62,19 +62,23 @@ const PokedexEntry = ({ route }) => {
             <View style={[styles.containerBottom, topBackground]}>
                 <View style={styles.data}>
                     <View style={[styles.dataContainer, dataBackground]}>
-                        <Text style={styles.text}>Height: {data.height}</Text>
+                        <Text style={styles.subtitle}>Height: </Text>
+                        <Text style={styles.text}>{data.height}</Text>
                     </View>
                     <View style={[styles.dataContainer, dataBackground]}>
-                        <Text style={styles.text}>Weight: {data.weight}</Text>
+                        <Text style={styles.subtitle}>Weight: </Text>
+                        <Text style={styles.text}>{data.weight}</Text>
                     </View>
                     <View style={[styles.dataContainer, dataBackground]}>
-                        <Text style={styles.text}>Type: {formattedTypes}</Text>
+                        <Text style={styles.subtitle}>Type: </Text>
+                        <Text style={styles.text}>{formattedTypes}</Text>
                     </View>
                     <View style={[styles.dataContainer, dataBackground]}>
-                        <Text style={styles.text}>Abilities: {formattedAbilities}</Text>
+                        <Text style={styles.subtitle}>Abilities: </Text>
+                        <Text style={styles.text}>{formattedAbilities}</Text>
                     </View>
                     <View style={[styles.statsContainer, dataBackground]}>
-                        <Text style={styles.text}>Stats:</Text>
+                        <Text style={styles.subtitle}>Stats:</Text>
                         <View style={styles.statContainer}>
                             {formattedStats}
                         </View>
@@ -117,6 +121,8 @@ const styles = StyleSheet.create({
         marginHorizontal:20,
     },
     dataContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
         padding: 5,
         borderRadius: 10,
         marginVertical: 5,
@@ -144,16 +150,28 @@ const styles = StyleSheet.create({
     },
     statText: {
         width: '45%',
-        color: 'white',
+        color: 'black',
         textAlign: 'start',
+        marginLeft: 10,
+        marginBottom: 5,
+        fontFamily: 'TitilliumWeb_400Regular',
+        opacity: 0.8
     },
     title: {
-        fontWeight: 'bold',
         fontSize:25,
         padding:10,
+        fontFamily: 'TitilliumWeb_700Bold',
+        opacity: 0.8
+    },
+    subtitle: {
+        fontFamily: 'TitilliumWeb_700Bold',
+        opacity: 0.2
     },
     text: {
-        color: 'white',
+        color: 'black',
+        marginVertical: 2,
+        fontFamily: 'TitilliumWeb_400Regular',
+        opacity: 0.8
     },
 });
 
