@@ -39,7 +39,7 @@ function SearchPokedex({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Image style={styles.searchbar} source={require('../assets/searchbar-open.webp')}></Image>
+      <Image style={styles.navigationButton} source={require('../assets/searchbar-open.webp')}></Image>
       <View style={styles.containerTop}>
         <TextInput
           placeholder="Enter Pokémon name"
@@ -53,42 +53,23 @@ function SearchPokedex({ navigation }) {
         <NavigationButton onPress={handleSubmit} colour={'#A1EEFF'}>
         </NavigationButton>
       <View style={styles.containerBottom}>
-        <Image style={styles.typography} source={require('../assets/typography2.webp')}></Image>
+        <Image style={styles.typography} source={require('../assets/typography1.webp')}></Image>
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  typography:{
-    alignSelf: 'center',
-    position: 'absolute',
-    zIndex: 0,
-    width: '50%',
-    height: undefined,
-    aspectRatio: 1,
-    resizeMode: 'contain'
-  },
-  searchbar:{
-    alignSelf: 'center',
-    position: 'absolute',
-    zIndex: 0,
-    width: '100%',
-    height: undefined,
-    aspectRatio: 1,
-    resizeMode: 'contain'
-  },
   container: {
     flex:1,
     justifyContent: 'center',
   },
   containerTop: {
-    zIndex: -5,
     flex:1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FF0000',
-    borderBottomWidth: 20,
+    zIndex: -5,
   },
   containerBottom: {
     flex:1,
@@ -99,10 +80,32 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     backgroundColor: 'white',
     color: 'black',
-    borderColor: '#C3BEC2', 
-    borderWidth: 5,
-    borderRadius: 20,
+    borderColor: '#F2F2F2', 
+    borderWidth: 10,
+    borderRadius: 30,
     fontFamily: 'TitilliumWeb_400Regular',
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 1,
+    shadowRadius: 2,  
+    elevation: 10
+  },
+  typography:{
+    alignSelf: 'center',
+    zIndex: -5,
+    width: '50%',
+    height: undefined,
+    aspectRatio: 1,
+    resizeMode: 'contain'
+  },
+  navigationButton:{
+    alignSelf: 'center',
+    position: 'absolute',
+    width: '100%',
+    height: undefined,
+    aspectRatio: 1,
+    resizeMode: 'contain',
+    zIndex: 0
   },
   errorText: {
     color: 'white'

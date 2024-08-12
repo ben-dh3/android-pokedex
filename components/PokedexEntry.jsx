@@ -44,7 +44,7 @@ const PokedexEntry = ({ route }) => {
 
     return (
         <View style={styles.container}>
-            <Image style={styles.searchbar} source={require('../assets/searchbar-close.webp')}></Image>
+            <Image style={styles.navigationButton} source={require('../assets/searchbar-close.webp')}></Image>
             <View style={[styles.containerTop, topBackground]}>
                 {hasData && (
                     <>
@@ -91,15 +91,6 @@ const PokedexEntry = ({ route }) => {
 };
 
 const styles = StyleSheet.create({
-    searchbar:{
-        alignSelf: 'center',
-        position: 'absolute',
-        zIndex: 0,
-        width: '100%',
-        height: undefined,
-        aspectRatio: 1,
-        resizeMode: 'contain'
-      },
     container: {
         flex: 1,
         justifyContent: 'center',
@@ -109,18 +100,31 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         zIndex: -5,
-        // borderBottomWidth:20,
     },
     containerBottom: {
         flex: 1,
         zIndex:-10,
     },
+    navigationButton:{
+        alignSelf: 'center',
+        position: 'absolute',
+        width: '100%',
+        height: undefined,
+        aspectRatio: 1,
+        resizeMode: 'contain',
+        zIndex: 0
+      },
     imageContainer: {
         alignItems: 'center',
         justifyContent: 'center',
         width: 200,
         height: 200,
         borderRadius: 200 / 2,
+        shadowColor: '#000000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 1,
+        shadowRadius: 2,  
+        elevation: 5,
     },
     image: {
         width: 150,
@@ -138,9 +142,9 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         marginVertical: 5,
         alignItems: 'center',
-        shadowColor: '#000',
+        shadowColor: '#000000',
         shadowOffset: { width: 0, height: 1 },
-        shadowOpacity: 0.8,
+        shadowOpacity: 1,
         shadowRadius: 2,  
         elevation: 5,
     },
@@ -148,9 +152,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 5,
         borderRadius: 10,
-        shadowColor: '#000',
+        shadowColor: '#000000',
         shadowOffset: { width: 0, height: 1 },
-        shadowOpacity: 0.8,
+        shadowOpacity: 1,
         shadowRadius: 2,  
         elevation: 5,
     },
