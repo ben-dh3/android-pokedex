@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextInput, View, StyleSheet, Text } from 'react-native';
+import { TextInput, View, StyleSheet, Text, Image } from 'react-native';
 import NavigationButton from './NavigationButton';
 
 function SearchPokedex({ navigation }) {
@@ -39,6 +39,7 @@ function SearchPokedex({ navigation }) {
 
   return (
     <View style={styles.container}>
+      <Image style={styles.searchbar} source={require('../assets/pokemon-searchbar.webp')}></Image>
       <View style={styles.containerTop}>
         <TextInput
           placeholder="Enter Pokémon name"
@@ -58,16 +59,26 @@ function SearchPokedex({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+  searchbar:{
+    alignSelf: 'center',
+    position: 'absolute',
+    zIndex: 0,
+    width: '100%',
+    height: undefined,
+    aspectRatio: 1,
+    resizeMode: 'contain'
+  },
   container: {
     flex:1,
     justifyContent: 'center',
   },
   containerTop: {
+    zIndex: -5,
     flex:1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FF0000',
-    borderBottomWidth: 20,
+    // borderBottomWidth: 20,
   },
   containerBottom: {
     flex:1,
@@ -80,6 +91,7 @@ const styles = StyleSheet.create({
     borderColor: '#C3BEC2', 
     borderWidth: 5,
     borderRadius: 20,
+    fontFamily: 'TitilliumWeb_400Regular',
   },
   errorText: {
     color: 'white'

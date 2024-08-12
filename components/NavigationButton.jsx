@@ -32,11 +32,12 @@ const NavigationButton = ({ onPress, colour }) => {
     <TouchableOpacity onPress={onPress} style={{ alignSelf: 'center', position: 'absolute' }}>
       <Animated.View
         style={{
-          width: 100,
-          height: 100,
+          width: 50,
+          height: 50,
           borderRadius: 100,
           backgroundColor: interpolatedColor,
-          borderWidth: 20,
+          zIndex: 10,
+          // borderWidth: 20,
         }}
       />
     </TouchableOpacity>
