@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextInput, View, StyleSheet, Text, Image } from 'react-native';
+import { TextInput, View, StyleSheet, Text, Image, ImageBackground } from 'react-native';
 import NavigationButton from './NavigationButton';
 
 function SearchPokedex({ navigation }) {
@@ -41,14 +41,16 @@ function SearchPokedex({ navigation }) {
     <View style={styles.container}>
       <Image style={styles.navigationButton} source={require('../assets/searchbar-open.webp')}></Image>
       <View style={styles.containerTop}>
-        <TextInput
+        <Image style={styles.searchbarContainer} source={require('../assets/searchbar-container.webp')} />
+          <TextInput
           placeholder="Enter Pokémon name"
           placeholderTextColor="black"
           value={pokemon}
           onChangeText={handleChangePokemon}
           style={styles.textInput}
-        />
-        {error && <Text style={styles.errorText}>{error}</Text>}
+          />
+          {error && <Text style={styles.errorText}>{error}</Text>}
+        
       </View>
         <NavigationButton onPress={handleSubmit} colour={'#A1EEFF'}>
         </NavigationButton>
@@ -88,7 +90,16 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 1,
     shadowRadius: 2,  
-    elevation: 10
+    elevation: 5
+  },
+  searchbarContainer: {
+    position: 'absolute',
+    alignSelf: 'center',
+    zIndex: -5,
+    width: '50%',
+    height: undefined,
+    aspectRatio: 1,
+    resizeMode: 'contain'
   },
   typography:{
     alignSelf: 'center',
