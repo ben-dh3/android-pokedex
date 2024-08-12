@@ -44,6 +44,7 @@ const PokedexEntry = ({ route }) => {
 
     return (
         <View style={styles.container}>
+            <Image style={styles.searchbar} source={require('../assets/searchbar-close.webp')}></Image>
             <View style={[styles.containerTop, topBackground]}>
                 {hasData && (
                     <>
@@ -90,6 +91,15 @@ const PokedexEntry = ({ route }) => {
 };
 
 const styles = StyleSheet.create({
+    searchbar:{
+        alignSelf: 'center',
+        position: 'absolute',
+        zIndex: 0,
+        width: '100%',
+        height: undefined,
+        aspectRatio: 1,
+        resizeMode: 'contain'
+      },
     container: {
         flex: 1,
         justifyContent: 'center',
@@ -98,7 +108,8 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        borderBottomWidth:20,
+        zIndex: -5,
+        // borderBottomWidth:20,
     },
     containerBottom: {
         flex: 1,

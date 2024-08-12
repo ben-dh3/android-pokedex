@@ -9,7 +9,7 @@ const NavigationButton = ({ onPress, colour }) => {
       Animated.sequence([
         Animated.timing(backgroundColor, {
           toValue: 1,
-          duration: 500,
+          duration: 1000,
           easing: Easing.linear,
           useNativeDriver: false,
         }),
@@ -32,12 +32,12 @@ const NavigationButton = ({ onPress, colour }) => {
     <TouchableOpacity onPress={onPress} style={{ alignSelf: 'center', position: 'absolute' }}>
       <Animated.View
         style={{
-          width: 50,
-          height: 50,
+          width: 100,
+          height: 100,
           borderRadius: 100,
           backgroundColor: interpolatedColor,
           zIndex: 10,
-          // borderWidth: 20,
+          borderWidth: 20,
         }}
       />
     </TouchableOpacity>

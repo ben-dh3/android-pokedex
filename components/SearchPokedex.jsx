@@ -39,7 +39,7 @@ function SearchPokedex({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Image style={styles.searchbar} source={require('../assets/pokemon-searchbar.webp')}></Image>
+      <Image style={styles.searchbar} source={require('../assets/searchbar-open.webp')}></Image>
       <View style={styles.containerTop}>
         <TextInput
           placeholder="Enter Pokémon name"
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FF0000',
-    // borderBottomWidth: 20,
+    borderBottomWidth: 20,
   },
   containerBottom: {
     flex:1,
