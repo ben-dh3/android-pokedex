@@ -43,7 +43,7 @@ function SearchPokedex({ navigation }) {
       <View style={styles.containerTop}>
         <TextInput
           placeholder="Enter Pokémon name"
-          placeholderTextColor="white"
+          placeholderTextColor="black"
           value={pokemon}
           onChangeText={handleChangePokemon}
           style={styles.textInput}
@@ -53,12 +53,22 @@ function SearchPokedex({ navigation }) {
         <NavigationButton onPress={handleSubmit} colour={'#A1EEFF'}>
         </NavigationButton>
       <View style={styles.containerBottom}>
+        <Image style={styles.typography} source={require('../assets/typography2.webp')}></Image>
       </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  typography:{
+    alignSelf: 'center',
+    position: 'absolute',
+    zIndex: 0,
+    width: '50%',
+    height: undefined,
+    aspectRatio: 1,
+    resizeMode: 'contain'
+  },
   searchbar:{
     alignSelf: 'center',
     position: 'absolute',
@@ -82,6 +92,7 @@ const styles = StyleSheet.create({
   },
   containerBottom: {
     flex:1,
+    justifyContent: 'center',
   },
   textInput: {
     width: '50%',
