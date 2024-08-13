@@ -50,7 +50,6 @@ function SearchPokedex({ navigation }) {
           style={styles.textInput}
           />
           {error && <Text style={styles.errorText}>{error}</Text>}
-        
       </View>
         <NavigationButton onPress={handleSubmit} colour={'#A1EEFF'}>
         </NavigationButton>
@@ -82,15 +81,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     backgroundColor: 'white',
     color: 'black',
-    borderColor: '#F2F2F2', 
-    borderWidth: 10,
-    borderRadius: 30,
+    borderColor: '#FF0000', 
+    borderTopRightRadius: 16,
+    borderTopLeftRadius: 16,
     fontFamily: 'TitilliumWeb_400Regular',
-    shadowColor: '#000000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 1,
-    shadowRadius: 2,  
-    elevation: 5
   },
   searchbarContainer: {
     position: 'absolute',
