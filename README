@@ -2,4 +2,4 @@
 
 BUILD COMMANDS
 eas build:configure
-eas build --platform android
+eas build --platform android --profile preview

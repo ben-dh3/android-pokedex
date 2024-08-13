@@ -38,6 +38,11 @@ const NavigationButton = ({ onPress, colour }) => {
           backgroundColor: interpolatedColor,
           zIndex: 10,
           borderWidth: 15,
+          shadowColor: '#000000',
+          shadowOffset: { width: 0, height: 2 },
+          shadowOpacity: 1,
+          shadowRadius: 2,  
+          elevation: 20,
         }}
       />
     </TouchableOpacity>

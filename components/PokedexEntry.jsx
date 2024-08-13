@@ -11,7 +11,7 @@ const PokedexEntry = ({ route }) => {
 
     const typeColors = {
         normal: ['#DFD7D1', '#A28C7B', '#D1C4BB'],
-        fire: ['#EED4C4', '#DBAA80', '#E6C0A3'],
+        fire: ['#FDB8B3', '#F73B2E', '#FE9A94'],
         water: ['#C2D0E2', '#7F9DC7', '#A3B9D6'],
         electric: ['#FFECA8', '#FFD747', '#FFE07A' ],
         grass: ['#D0EABE','#9CD275', '#B8DE9C'],

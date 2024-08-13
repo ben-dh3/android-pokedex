@@ -4,10 +4,10 @@
     "slug": "pokedex-mobile-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/splash.webp",
+    "icon": "./assets/splash.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.webp",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#FF0000"
     },
@@ -17,13 +17,13 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/splash.webp",
+        "foregroundImage": "./assets/splash.png",
         "backgroundColor": "#ffffff"
       },
       "package": "pokedex.mobile.app"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/splash.png"
     },
     "extra": {
       "eas": {

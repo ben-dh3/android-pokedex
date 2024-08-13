@@ -41,20 +41,19 @@ function SearchPokedex({ navigation }) {
     <View style={styles.container}>
       <Image style={styles.navigationButton} source={require('../assets/searchbar-open.webp')}></Image>
       <View style={styles.containerTop}>
-        <Image style={styles.searchbarContainer} source={require('../assets/searchbar-container.webp')} />
-          <TextInput
-          placeholder="Enter Pokémon name"
-          placeholderTextColor="black"
-          value={pokemon}
-          onChangeText={handleChangePokemon}
-          style={styles.textInput}
-          />
-          {error && <Text style={styles.errorText}>{error}</Text>}
+        <TextInput
+        placeholder="Enter Pokémon name"
+        placeholderTextColor="black"
+        value={pokemon}
+        onChangeText={handleChangePokemon}
+        style={styles.textInput}
+        />
+        {error && <Text style={styles.errorText}>{error}</Text>}
       </View>
         <NavigationButton onPress={handleSubmit} colour={'#A1EEFF'}>
         </NavigationButton>
       <View style={styles.containerBottom}>
-        <Image style={styles.typography} source={require('../assets/typography1.webp')}></Image>
+        <Image style={styles.typography} source={require('../assets/typography2.webp')}></Image>
       </View>
     </View>
   );
@@ -75,25 +74,23 @@ const styles = StyleSheet.create({
   containerBottom: {
     flex:1,
     justifyContent: 'center',
+    backgroundColor: 'white',
+    zIndex: -5
   },
   textInput: {
     width: '50%',
     textAlign: 'center',
     backgroundColor: 'white',
     color: 'black',
-    borderColor: '#FF0000', 
-    borderTopRightRadius: 16,
-    borderTopLeftRadius: 16,
+    borderColor: '#F2F2F2', 
+    borderWidth: 10,
+    borderRadius: 30,
     fontFamily: 'TitilliumWeb_400Regular',
-  },
-  searchbarContainer: {
-    position: 'absolute',
-    alignSelf: 'center',
-    zIndex: -5,
-    width: '50%',
-    height: undefined,
-    aspectRatio: 1,
-    resizeMode: 'contain'
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 2,  
+    elevation: 20,
   },
   typography:{
     alignSelf: 'center',
