@@ -4,10 +4,10 @@
     "slug": "pokedex-mobile-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/splash.webp",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splash.webp",
       "resizeMode": "contain",
       "backgroundColor": "#FF0000"
     },
@@ -17,7 +17,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/splash.webp",
         "backgroundColor": "#ffffff"
       },
       "package": "pokedex.mobile.app"
