@@ -4,22 +4,15 @@
 <br />
 <div align="center">
   <a href="https://bendhportfolio.netlify.app/pokedex">
-    <img src="./images/logo.png" alt="Logo" width="80" height="80">
+    <img src="/assets/splash.png" alt="Logo" height="400">
   </a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">Android Mobile Pokedex</h3>
 
   <p align="center">
-    project_description
+    Designed in Figma with graphics created in Adobe Illustrator and After Effects - Search any pokemon with Poke API integration.
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
+    <a href="https://expo.dev/accounts/bendh3/projects/pokedex-mobile-app/builds/d706747a-e61d-4fea-bd94-6bd833ece426">Download App for Android</a>
   </p>
 </div>
 
@@ -44,10 +37,7 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -56,7 +46,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<img src="/assets/search-screen.webp" alt="Logo" height="400">
 
 Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
 
