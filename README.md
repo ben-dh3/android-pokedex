@@ -10,9 +10,9 @@
   <p align="center">
     Mobile Pokedex built with React Native and Expo, with graphics created in Adobe Illustrator and After Effects.
     <br />
-    <a href="https://expo.dev/accounts/bendh3/projects/pokedex-mobile-app/builds/d706747a-e61d-4fea-bd94-6bd833ece426">Download App for Android</a>
+    <a href="https://github.com/ben-dh3/android-pokedex/releases/tag/v1.0.0">Download App for Android</a>
     <br />
-    <a href="https://bendhportfolio.netlify.app/pokedex">Portfolio Project Entry</a>
+    <a href="https://coding-portfolio-gamma.vercel.app/portfolio/pokedex">Portfolio Project Entry</a>
   </p>
 </div>
 
